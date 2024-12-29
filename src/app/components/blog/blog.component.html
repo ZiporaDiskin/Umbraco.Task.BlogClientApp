@@ -1,0 +1,23 @@
+
+
+<div class="blog-container">
+    <div class="blog-card" *ngFor="let post of blogPosts">
+      <h2 class="blog-title">{{ post.properties.title }}</h2>
+      <p class="blog-author"><strong>Author:</strong> {{ post.properties.authorName }}</p>
+      <p class="blog-publish-date"><strong>Publish Date:</strong> {{ post.properties.publishDate | date: 'short' }}</p>
+      
+     
+      <div class="blog-content" [innerHTML]="post.properties.bodyContent?.markup"></div>
+  
+  
+      <div class="tags">
+        <strong>Tags:</strong>
+        <ul>
+          <li *ngFor="let tag of post.properties.tags">{{ tag }}</li>
+        </ul>
+      </div>
+  
+    
+    </div>
+  </div>
+  
